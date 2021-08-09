@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResponse> {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
 
         loadComponents()
         loadEvents()
@@ -36,8 +36,8 @@ class LoginActivity : AppCompatActivity(), Callback<LoginResponse> {
     }
 
     fun fazerLogin() {
-        val email = inputEmail.toString()
-        val senha = inputSenha.toString()
+        val email = inputEmail.text.toString()
+        val senha = inputSenha.text.toString()
 
         val credentials = Credentials(email, senha)
 

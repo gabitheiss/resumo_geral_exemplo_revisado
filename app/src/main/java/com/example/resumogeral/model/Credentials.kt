@@ -8,9 +8,9 @@ data class Credentials(
     @SerializedName("password") val password: String
 ){
     fun checkUserName():Boolean{
-        return email.isEmpty()
+        return email.isNotEmpty()
     }
     fun checkUserPassword():Boolean{
-        return password.isEmpty()
+        return password.isNotEmpty()
     }
 }
