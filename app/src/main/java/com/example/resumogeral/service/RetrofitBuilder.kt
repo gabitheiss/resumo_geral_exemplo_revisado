@@ -17,5 +17,8 @@ object RetrofitBuilder {
     fun getAuthenticationServices(): Authentication{
         return retrofitFake.create(Authentication::class.java)
     }
+    fun getProductServices(): ProductService{
+        return retrofitFake.create(ProductService::class.java)
+    }
 
 }
