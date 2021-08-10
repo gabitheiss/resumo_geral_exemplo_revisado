@@ -1,4 +1,5 @@
 package com.example.resumogeral
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +15,12 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity(), Callback<List<Products>> {
 
     private lateinit var recyclerView: RecyclerView
-    private val adapter = Adapter()
+    private val adapter = Adapter() { product ->
+        Intent(this, ProductDetailActivity::class.java).apply {
+            putExtra(ProductDetailActivity.PARAMETER_PRODUCT, product.id)
+            startActivity(this)
+        }
+    }
     private val productsCall by lazy {
         RetrofitBuilder.getProductServices().getProducts()
     }

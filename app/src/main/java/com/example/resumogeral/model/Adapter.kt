@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.resumogeral.R
 
-class Adapter : RecyclerView.Adapter<ItensProducts>() {
+class Adapter (val onClick: (Products) -> Unit): RecyclerView.Adapter<ItensProducts>() {
 
     private var listOfProducts = mutableListOf<Products>()
 
@@ -23,6 +23,7 @@ class Adapter : RecyclerView.Adapter<ItensProducts>() {
     override fun onBindViewHolder(holder: ItensProducts, position: Int) {
         listOfProducts[position].apply {
             holder.bind(this)
+            holder.itemView.setOnClickListener { onClick(this) }
         }
     }
 
